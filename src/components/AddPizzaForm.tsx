@@ -1,6 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { Pizza } from '../models/Pizza';
+import { Pizza } from '../types/Pizza';
 import './styles.css';
 
 interface AddPizzaFormProps {
@@ -56,7 +56,7 @@ const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
         type="text"
         name="img"
         value={newPizza.img}
-        placeholder="Image"
+        placeholder="Image: pizza-(1-6).jpg"
         onChange={handleChange}
       />
       <button type="submit">+ Add to menu</button>

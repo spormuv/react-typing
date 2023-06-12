@@ -1,6 +1,5 @@
-import { nanoid } from '@reduxjs/toolkit';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { Pizza } from '../models/Pizza';
+import { Pizza } from '../types/Pizza';
 import './styles.css';
 
 interface EditPizzaFormProps {

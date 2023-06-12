@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import './App.css';
 import AddPizzaForm from './components/AddPizzaForm';
 import DisplayPizzas from './components/DisplayPizzas';
-import { Pizza } from './models/Pizza';
+import { Pizza } from './types/Pizza';
 
 const localStoragePizzas = localStorage.getItem('pizzas');
 const initPizzaList = localStoragePizzas ? JSON.parse(localStoragePizzas) : [];
