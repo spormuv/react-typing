@@ -1,11 +1,22 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './App.css';
 import AddPizzaForm from './components/AddPizzaForm';
 import DisplayPizzas from './components/DisplayPizzas';
 import { Pizza } from './models/Pizza';
 
+const localStoragePizzas = localStorage.getItem('pizzas');
+const initPizzaList = localStoragePizzas ? JSON.parse(localStoragePizzas) : [];
+
+const setLocalPizzas = (list: Pizza[]) => {
+  localStorage.setItem('pizzas', JSON.stringify(list));
+};
+
 const App: FC = () => {
-  const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
+  const [pizzasList, setPizzasList] = useState<Pizza[]>(initPizzaList);
+
+  useEffect(() => {
+    setLocalPizzas(pizzasList);
+  }, [pizzasList]);
 
   const addPizza = (newPizza: Pizza) => {
     setPizzasList([...pizzasList, newPizza]);
